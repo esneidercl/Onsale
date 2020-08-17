@@ -8,6 +8,9 @@ namespace OnSale.Web.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)// metodo constructor ctro 2 veces tab, con parametro
         {
         }
+     
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         public DbSet<Country> Countries { get; set; }
 
@@ -18,6 +21,16 @@ namespace OnSale.Web.Data
             modelBuilder.Entity<Country>()// referencia de la entidad a evaluar
                 .HasIndex(t => t.Name) // crear un indice a la entidad por el campo nombre, la t es un objeto
                 .IsUnique();// instruccion para hacer unico un campo
+
+
+            modelBuilder.Entity<Department>()// referencia de la entidad a evaluar
+               .HasIndex(t => t.Name) // crear un indice a la entidad por el campo nombre, la t es un objeto
+               .IsUnique();// instruccion para hacer unico un campo
+
+
+            modelBuilder.Entity<City>()// referencia de la entidad a evaluar
+               .HasIndex(t => t.Name) // crear un indice a la entidad por el campo nombre, la t es un objeto
+               .IsUnique();// instruccion para hacer unico un campo
         }
     }
 }

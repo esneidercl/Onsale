@@ -48,6 +48,11 @@ namespace OnSale.Web.Helpers
             Stream stream = File.OpenRead(image);
             return await UploadStreamAsync(stream, containerName);
         }
+
+        public Task<Guid> UploadBlobAsync(object imageFile, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

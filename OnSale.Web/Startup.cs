@@ -43,6 +43,7 @@ namespace OnSale.Web
             services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddTransient<SeedDb>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddScoped<ICombosHelper, CombosHelper>();// inuyeccion combo box
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

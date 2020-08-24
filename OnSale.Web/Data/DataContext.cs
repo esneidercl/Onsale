@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OnSale.Common.Entities;
+using OnSale.Web.Data.Entities;
 
 namespace OnSale.Web.Data
 {
-    public class DataContext : DbContext // para heredar, requiere importar 
+    public class DataContext : IdentityDbContext<User> // para heredar, requiere importar 
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)// metodo constructor ctro 2 veces tab, con parametro
         {
@@ -20,6 +22,10 @@ namespace OnSale.Web.Data
         public DbSet<Product> Products { get; set; }
 
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)// para validar que no se repitan 2 paises
